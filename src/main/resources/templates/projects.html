@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+<div class="container">
+    <h2>Projects</h2>
+    <a class="btn btn-primary" th:href="@{/projects/new}">Create New Project</a>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Vendor Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="project : ${projects}">
+            <td th:text="${project.name}"></td>
+            <td th:text="${project.price}"></td>
+            <td th:text="${project.category.name}"></td>
+            <td th:text="${project.description}"></td>
+            <td th:text="${project.status}"></td>
+            <td th:text="${project.vendorName}"></td>
+            <td>
+                <a th:href="@{/projects/edit/{id}(id=${project.id})}" class="btn btn-warning">Edit</a>
+                <a th:href="@{/projects/{id}/delete(id=${project.id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
