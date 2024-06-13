@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sign Up</title>
+<!--    <link rel="stylesheet" href="../css/register.css"/>-->
+    <link rel="stylesheet" th:href="@{/css/register.css}" />
+<!--    <link rel="stylesheet" href="../styles/main.css"/>-->
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+      .error-message {
+        color: #f0ad4e;
+        font-size: 12px;
+        margin-top: -15px;
+        margin-bottom: 10px;
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body id="body">
+    <!-- Back button -->
+    <a th:href="@{/}" class="back-button"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    <div class="container">
+      <div class="image-section">
+<!--        <section class="content">-->
+<!--          <div class="video">-->
+<!--              <video src="../images/night-v.mp4" controls autoplay loop></video>-->
+<!--          </div>-->
+<!--      </section>-->
+
+
+      </div>
+
+      <div class="form-section">
+        <h1>Sign Up For An Account</h1>
+        <form id="signupForm" action="login.html">
+          <input type="text" id="firstname" name="firstname" placeholder="First Name" />
+          <div class="error-message" id="firstNameError">
+            Please enter your first name.
+          </div>
+
+          <input type="text" id="lastname" name="lastname" placeholder="Last Name" />
+          <div class="error-message" id="lastNameError">
+            Please enter your last name.
+          </div>
+
+
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Email Address"
+          />
+          <div class="error-message" id="emailError">
+            Please enter a valid email address.
+          </div>
+
+
+
+          <input type="tel" id="tel" name="tel" placeholder="Phone number" />
+          <div class="error-message" id="telError">
+            Please enter a valid phone number.
+          </div>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+          />
+          <div class="error-message" id="passwordError">
+            Password must be at least 8 characters long and contain at least one
+            uppercase letter, one lowercase letter, and one digit.
+          </div>
+
+          <select id="refer" name="refer">
+            <option value="" disabled selected>
+              How did you hear about us?
+            </option>
+            <option value="facebook">Facebook</option>
+            <option value="linkedin">Linkedin</option>
+            <option value="google">Google</option>
+          </select>
+
+          <div class="error-message" id="referError">
+            Please select how you heard about us.
+          </div>
+
+
+          <!-- New input field for other refer option -->
+            <input type="text" id="otherRefer" name="otherRefer" placeholder="Please specify" style="display: none;" >
+            <div class="error-message" id="otherReferError">
+            Please specify how you heard about us.
+            </div>
+
+           
+          <fieldset class="dining-space">
+            <legend>Please select your user type</legend>
+            <label>
+              <input type="radio" name="user_type" value="student" />
+              Student
+            </label>
+            <label>
+              <input type="radio" name="user_type" value="teacher" />
+              Teacher
+            </label>
+          </fieldset>
+
+          <label>
+            <input type="checkbox" id="terms" name="terms" />
+            I agree to the terms and conditions
+          </label>
+          <div class="error-message" id="termsError" style="margin-top: 15px">
+            You must agree to the terms and conditions.
+          </div>
+
+          <button type="submit" class="book-btn">Register</button>
+        </form>
+        <p>Already have an account?... <a href="login.html">Sign in</a></p>
+      </div>
+    </div>
+
+    <div th:insert="~{fragments/footer :: footer}"></div>
+
+<!--    <footer>-->
+<!--      <div class="socials">-->
+<!--          <strong>Follow us on: </strong>-->
+<!--          <a href="https://www.facebook.com" class="fab fa-facebook"></a>-->
+<!--          <a href="https://www.twitter.com" class="fab fa-twitter"></a>-->
+<!--          <a href="https://www.linkedin.com" class="fab fa-linkedin"></a>-->
+<!--      </div>-->
+<!--      <p>Copyright &copy; 2023-2024 Handy. - All rights reserved.</p>-->
+<!--  </footer>-->
+
+ 
+
+    <script src="../js/register-validation.js"></script>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+body {
+    background-size: cover;
+    background-image: url("../images/login-background.jpg");
+    background-blend-mode: screen;
+    background-color: #3a3a3a;
+}
+
+#form {
+    width: 300px;
+    margin: 30vh auto 0 auto;
+    padding: 20px;
+    background: linear-gradient(to bottom right, #c05c60, #dc143c, #ce9f9f); /* Adjusted gradient */
+    color: white;
+    border-radius: 10px;
+    font-size: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#form h1 {
+    color: #fff; /* White color for the header */
+    text-align: center;
+}
+
+#form button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    color: white;
+    background: linear-gradient(to top left, #bba8a4, #de7373, #dc143c); /* Adjusted button gradient */
+    border: none;
+    border-radius: 4px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+#form button:hover {
+    background: linear-gradient(to top right, #ec0420, #ff6347, #ff3e96);
+    box-shadow: 0 0 5px #ff1493, 0 0 10px #ff00ff, 0 0 15px #ff69b4,
+    0 0 20px #ff6347, 0 0 35px #ec0420, 0 0 40px #ff3e96;
+}
+
+.input-control {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-control input {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    color: #333;
+    border: none;
+    border-bottom: 1px solid #333;
+    outline: none;
+    background: transparent;
+}
+
+.input-control input:focus {
+    outline: 0;
+    border-bottom: 1px solid #dc143c; /* Red border on focus */
+}
+
+.input-control label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    color: #333;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.forgot-password {
+    display: block;
+    text-align: right;
+    font-size: 12px;
+    color: rgba(0, 4, 255, 0.88); /* Reddish color for the link */
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.signup-session {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #fff; /* White background */
+    color: #ff4500; /* Red color */
+    text-decoration: none;
+    border: 2px solid #ff4500; /* Red border */
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.signup-button:hover {
+    background: linear-gradient(to top right, #f6a2b3	, #ee4466, #a30f2d);
+    border: none;
+    box-shadow: 0 0 5px #ff1493, 0 0 10px #f05c79, 0 0 15px #ff69b4,
+    0 0 20px #ff6347, 0 0 35px #ff4500, 0 0 40px #ff3e96;
+}
+
+footer {
+    grid-area: footer;
+    background-blend-mode: screen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    padding-top: 10px;
+}
+
+.socials a {
+    margin-right: 10px;
+    color:  rgb(177, 39, 45); /* Red color for social links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.socials a:hover {
+    color: #dc143c; /* Lighter red color on hover */
+}

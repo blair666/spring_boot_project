@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quote Management System</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+<!--    <link rel="stylesheet" href="../css/main.css">-->
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+<body>
+<header>
+
+    <nav class="navbar">
+    <div class="container">
+        <div class="navbar_logo">
+            <img src="../images/logo.png" alt="Logo">
+        </div>
+        <ul class="navbar_list">
+            <li><a href="/" th:href="@{/}"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/vendors" th:href="@{/vendors}"><i class="fas fa-store"></i> Vendors</a></li>
+            <li><a href="/quotes" th:href="@{/quotes}"><i class="fas fa-file-alt"></i> Quotes</a></li>
+            <li><a href="/projects" th:href="@{/projects}"><i class="fas fa-briefcase"></i> Projects</a></li>
+
+        </ul>
+
+    </div>
+</nav></header>
+
+
+<div class="container mt-5">
+    <div class="row">
+        <h1>Quotes List</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <a th:href="@{/quotes/new}" class="btn btn-primary btn-sm mb-3">Add Quote</a>
+        </div>
+        <div class="col-lg-3">
+            <button class="btn btn-secondary btn-sm mb-3" id="compareButton" onclick="compareQuotes()">Compare Selected Quotes</button>
+        </div>
+    </div>
+
+    <form id="quoteForm" method="get" th:action="@{/quotes/compare}">
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>Select</th>
+                <th>Vendor Name</th>
+                <th>Project Description</th>
+                <th>
+                    Price
+                    <a th:href="@{/quotes?sort=price_asc}" class="btn btn-link">↑</a>
+                    <a th:href="@{/quotes?sort=price_desc}" class="btn btn-link">↓</a>
+                </th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="quote : ${quotes}">
+                <td><input type="checkbox" name="quoteIds" th:value="${quote.id}"></td>
+                <td th:text="${quote.vendorName}"></td>
+                <td th:text="${quote.projectDescription}"></td>
+                <td th:text="${quote.price}"></td>
+                <td>
+                    <a th:href="@{/quotes/edit/{id}(id=${quote.id})}" class="btn btn-primary">Update</a>
+                    <a th:href="@{/quotes/{id}/delete(id=${quote.id})}" class="btn btn-danger">Delete</a>
+                    <a th:href="@{/quotes/{id}(id=${quote.id})}" class="btn btn-info">More Details</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+<div th:insert="~{fragments/footer :: footer}"></div>
+
+<script>
+    function compareQuotes() {
+        const selectedQuotes = document.querySelectorAll('input[name="quoteIds"]:checked');
+        if (selectedQuotes.length < 2) {
+            alert("Please select at least two quotes to compare.");
+            return;
+        }
+        document.getElementById('quoteForm').submit();
+    }
+</script>
+<script src="../static/js/compareQuotes.js"></script>
+</body>
+</html>

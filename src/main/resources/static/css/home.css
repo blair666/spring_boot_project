@@ -1,0 +1,9 @@
+
+/*homepage backgroud*/
+
+body {
+    background-size: cover;
+    background-image: url("../images/backgroud.jpg");
+    background-blend-mode: screen;
+    background-color: #3a3a3a;
+}

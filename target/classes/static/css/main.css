@@ -1,0 +1,78 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(177, 39, 45);
+}
+.navbar_logo img {
+    width: 120px;
+}
+.navbar_list {
+    display: flex;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+.navbar_list li {
+    margin-right: 20px;
+}
+.navbar_list li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.navbar_list li a:hover:not(.active) {
+    background-color: rgb(233, 203, 203);
+}
+.navbar .login-register {
+    display: flex;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+.navbar .login-register li {
+    margin-left: 20px;
+}
+.container {
+    margin-top: 30px;
+}
+
+
+
+/* foot section */
+footer {
+    grid-area: footer;
+    background-color: #f1f1f1;
+    background-blend-mode: screen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    padding-top: 10px;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+}
+
+a {
+    color: rgb(177, 39, 45);
+    text-decoration: none;
+    transition: text-shadow 0.3s ease;
+}
+
+a:hover {
+    text-shadow: 0 0 10px white, 0 0 20px white;
+}

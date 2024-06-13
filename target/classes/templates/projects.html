@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Projects Management System</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<!--    <link rel="stylesheet" href="../css/main.css">-->
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+
+</head>
+<body>
+<header>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar_logo">
+                <img src="../images/logo.png" alt="Logo">
+            </div>
+        <ul class="navbar_list">
+            <li><a href="/" th:href="@{/}"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/vendors" th:href="@{/vendors}"><i class="fas fa-store"></i> Vendors</a></li>
+            <li><a href="/quotes" th:href="@{/quotes}"><i class="fas fa-file-alt"></i> Quotes</a></li>
+            <li><a href="/projects" th:href="@{/projects}"><i class="fas fa-briefcase"></i> Projects</a></li>
+
+        </ul>
+
+    </div>
+</nav>
+</header>
+
+<div class="container mt-5">
+    <div class="row">
+        <h1>Projects List</h1>
+    </div>
+    <a class="btn btn-primary mb-3" th:href="@{/projects/new}">Create New Project</a>
+    <table class="table table-bordered">
+        <thead class="thead-light">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Vendor Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="project : ${projects}">
+            <td th:text="${project.name}"></td>
+            <td th:text="${project.price}"></td>
+            <td th:text="${project.category.name}"></td>
+            <td th:text="${project.description}"></td>
+            <td th:text="${project.status}"></td>
+            <td th:text="${project.vendorName}"></td>
+            <td>
+                <a th:href="@{/projects/edit/{id}(id=${project.id})}" class="btn btn-warning btn-sm mr-1">Edit</a>
+                <a th:href="@{/projects/{id}/delete(id=${project.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this project?')">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:insert="~{fragments/footer :: footer}"></div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

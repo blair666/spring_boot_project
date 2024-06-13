@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}" />
+<!--    <link rel="stylesheet" href="../css/login.css">-->
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+<!--    <link rel="stylesheet" href="../styles/main.css"/>-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body id="body">
+
+<!-- Back button -->
+<a th:href="@{/}" class="back-button"><i class="fas fa-arrow-left"></i> Back to Home</a>
+<div class="container">
+    <form id="form" action="./index.html">
+        <h1>Login</h1>
+        <div class="input-control">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="text" required />
+            <div class="error"></div>
+        </div>
+        <div class="input-control">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" required />
+            <div class="error"></div>
+        </div>
+
+
+        <div class="input-control remember-me">
+            <input type="checkbox" name="remember" id="remember">
+            <label for="remember">Remember Me</label>
+        </div>
+        <a href="forgot-password.html" class="forgot-password">Forgot Password?</a>
+
+
+        <button id="submit" type="submit">Sign in</button>
+
+        <hr> <!-- Horizontal line -->
+        <div class="signup-session">
+            <label for ="noaccont">Don't have an account?</label>
+            <a href="../pages/register.html" class="signup-button">Create an account with us</a>
+        </div>
+    </form>
+    <!-- <div class="theme-buttons">
+        <button id="darkbutton">Dark Mode</button>
+        <button id="lightbutton">Light Mode</button>
+    </div> -->
+</div>
+
+<div th:insert="~{fragments/footer :: footer}"></div>
+<!--    <footer>-->
+<!--        <div class="socials">-->
+<!--            <strong>Follow us on: </strong>-->
+<!--            <a href="https://www.facebook.com" class="fab fa-facebook"></a>-->
+<!--            <a href="https://www.twitter.com" class="fab fa-twitter"></a>-->
+<!--            <a href="https://www.linkedin.com" class="fab fa-linkedin"></a>-->
+<!--          </div>-->
+<!--          <p>Copyright &copy; 2023-2024 Handy. - All rights reserved.</p>-->
+
+<!--    </footer>-->
+
+<script type="module" src="../js/navbar.js"></script>
+<script src="../js/login-validation.js"></script>
+</body>
+</html>

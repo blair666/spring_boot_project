@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Get Contact</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <!-- Optional: Include your custom CSS here -->
+    <style>
+        .alert-message {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Enter Your Contact Info to Get Quote</h1>
+    <form th:action="@{/vendors/{id}(id=${vendor.id})}" method="post" th:object="${vendor}">
+        <input type="hidden" th:field="*{id}">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" class="form-control" th:field="*{name}" required>
+        </div>
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <input type="text" id="category" class="form-control" th:field="*{category}" required>
+        </div>
+        <div class="form-group">
+            <label for="zipCode">Zip Code:</label>
+            <input type="text" id="zipCode" class="form-control" th:field="*{zipCode}" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" id="address" class="form-control" th:field="*{address}">
+        </div>
+        <button type="submit" class="btn btn-primary">Get Quotes</button>
+    </form>
+    <a href="/vendors">Back to Vendor List</a>
+</div>
+
+<!-- Optional: Add a modal or alert message to display after form submission -->
+<div class="modal fade" id="quoteModal" tabindex="-1" role="dialog" aria-labelledby="quoteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="quoteModalLabel">Quote Request Submitted</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Thank you for submitting your contact information. We will get back to you with a quote soon.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Optional: JavaScript to trigger the modal after form submission -->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    /* Thymeleaf script to check if the form was submitted successfully and show the modal */
+    var formSubmitted = /*[[${#fields.hasErrors('vendor')}]]*/ false; // Check if there are errors
+    if (!formSubmitted) {
+        $(document).ready(function () {
+            $('#quoteModal').modal('show'); // Show the modal if form submission was successful
+        });
+    }
+    /*]]>*/
+</script>
+
+<!-- Optional: Include jQuery and Bootstrap JavaScript libraries -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+alrOjcZOUbzElx7X8w+t+1KHOgxh1xqpih/8BiCk6OImB9"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
