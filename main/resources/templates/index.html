@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project & Quote Management System</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Management System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a id="projectsTab" class="nav-link active" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+                <a id="quotesTab" class="nav-link" href="#quotes">Quotes</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Projects Section -->
+<div class="container" id="projects">
+    <h2>Projects Section</h2>
+    <object type="text/html" data="projects.html" style="width: 100%; height: 100%;"></object>
+</div>
+
+<!-- Quotes Section -->
+<div class="container" id="quotes" style="display: none;">
+    <h2>Quotes Section</h2>
+    <object type="text/html" data="quotes.html" style="width: 100%; height: 100%;"></object>
+</div>
+
+<!-- Include Bootstrap JS (required for navbar toggling) -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<!-- JavaScript for switching between project and quote sections -->
+<script>
+    // Switch between projects and quotes sections
+    document.addEventListener('DOMContentLoaded', function () {
+        // Handle click on projects tab
+        document.getElementById('projectsTab').addEventListener('click', function () {
+            document.getElementById('projects').style.display = 'block';
+            document.getElementById('quotes').style.display = 'none';
+        });
+
+        // Handle click on quotes tab
+        document.getElementById('quotesTab').addEventListener('click', function () {
+            document.getElementById('projects').style.display = 'none';
+            document.getElementById('quotes').style.display = 'block';
+        });
+    });
+</script>
+</body>
+</html>
