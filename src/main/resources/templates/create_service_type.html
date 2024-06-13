@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quote Management System</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Quote Management System</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/quotes}">Quote Management</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<br>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class="text-center"> Created New Project</h1>
+            <div class="card-body">
+                <form th:action="@{/quotes}" th:object="${quote}" method="POST">
+                    <div class="form-group">
+                        <label>Vendor Name</label>
+                        <input type="text" name="vendorName" th:field="*{vendorName}" class="form-control"
+                               placeholder="Enter Vendor Name" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Project Description</label>
+                        <input type="text" name="projectDescription" th:field="*{projectDescription}"
+                               class="form-control" placeholder="Enter Project Description" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input type="text" name="price" th:field="*{price}" class="form-control"
+                               placeholder="Enter Price" />
+                    </div>
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

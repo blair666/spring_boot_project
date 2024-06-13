@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quote Management System</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Projects Management System</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/projects}">
+                    <i class="fas fa-arrow-left"></i> Back To Projects List</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+
+<div class="container">
+    <h2>Create Project</h2>
+    <form th:action="@{/projects/save}" th:object="${project}" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Enter project name" required>
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" id="price" th:field="*{price}" placeholder="Enter project price" required>
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select class="form-control" id="category" th:field="*{category.id}" required>
+                <option th:each="category : ${listCategories}" th:value="${category.id}" th:text="${category.name}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" th:field="*{description}" placeholder="Enter project description" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="status">Status</label>
+            <input type="text" class="form-control" id="status" th:field="*{status}" placeholder="Enter project status" required>
+        </div>
+<!--        <div class="form-group">-->
+<!--            <label for="vendorName">Vendor Name</label>-->
+<!--            <input type="text" class="form-control" id="vendorName" th:field="*{vendorName}" placeholder="Enter vendor name" required>-->
+<!--        </div>-->
+        <button type="submit" class="btn btn-primary">Save Project</button>
+    </form>
+</div>
+</body>
+</html>

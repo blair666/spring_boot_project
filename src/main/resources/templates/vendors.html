@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vendors</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar_list">
+            <li><a href="/" th:href="@{/}"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/vendors" th:href="@{/vendors}"><i class="fas fa-store"></i> Vendors</a></li>
+            <li><a href="/projects" th:href="@{/projects}"><i class="fas fa-briefcase"></i> Projects</a></li>
+            <li><a href="/quotes" th:href="@{/quotes}"><i class="fas fa-file-alt"></i> Quotes</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container mt-5">
+    <h1 class="mb-4">Vendors</h1>
+    <form th:action="@{/vendors}" method="get">
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="category">Category:</label>
+                <select id="category" name="category" class="form-control" required>
+                    <option value="" disabled selected>Select Category</option>
+                    <option value="Handyperson">Handyperson</option>
+                    <option value="Landscaping">Landscaping</option>
+                    <option value="Plumbing">Plumbing</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Remodeling">Remodeling</option>
+                    <option value="Roofing">Roofing</option>
+                </select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="zipCode">Zip Code:</label>
+                <input type="text" id="zipCode" name="zipCode" class="form-control" placeholder="Enter Zip Code">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>&nbsp;</label>
+                <button type="submit" class="btn btn-primary btn-block">Filter</button>
+            </div>
+        </div>
+    </form>
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Zip Code</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="vendor : ${vendors}">
+            <td th:text="${vendor.name}"></td>
+            <td th:text="${vendor.category}"></td>
+            <td th:text="${vendor.zipCode}"></td>
+            <td>
+                <a th:href="@{/vendors/edit/{id}(id=${vendor.id})}" class="btn btn-sm btn-info">Edit</a>
+                <a th:href="@{/vendors/{id}/delete(id=${vendor.id})}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this vendor?')">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/vendors/new" class="btn btn-primary">Add New Vendor</a>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
