@@ -96,5 +96,11 @@ VendorServiceImplTest
 
 
 
+<img width="1426" alt="Home" src="https://github.com/blair666/spring_boot_project/assets/34014180/7cd690cd-afc5-4971-8382-41f61cde27f9">
+![Vendors_page](https://github.com/blair666/spring_boot_project/assets/34014180/1da7a7ca-b07c-48bc-a59a-2a704585bc55)
 
+![Quotes](https://github.com/blair666/spring_boot_project/assets/34014180/414742a0-9b99-4a10-b754-277b424bf8be)
+![Projects](https://github.com/blair666/spring_boot_project/assets/34014180/9be5613a-6f54-4828-ac08-bba4dfcabc63)
 
+![Screenshot 2024-06-13 at 5 10 41 PM](https://github.com/blair666/spring_boot_project/assets/34014180/74496328-c8b1-4777-9dc1-f08d37388e59)
+![Screenshot 2024-06-13 at 5 10 50 PM](https://github.com/blair666/spring_boot_project/assets/34014180/3ddccece-5351-459c-b2f0-4283954224e6)
